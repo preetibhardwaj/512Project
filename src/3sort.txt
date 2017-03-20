@@ -1,0 +1,47 @@
+
+# $Id: 3sort.txt 2449 2017-02-19 20:51:37Z asminer $
+
+#
+#
+# Kripke structure for sorting an array of dimension 3
+#
+#
+
+KRIPKE
+
+STATES 16
+
+ARCS
+  S0->S1;  S0->S2;  S0->S3;
+  S1->S4;  S1->S5;
+  S2->S6;  S2->S7;
+  S3->S8;  S3->S9;
+  S4->S10;
+  S5->S11;
+  S6->S12;
+  S7->S13;
+  S8->S14;
+  S9->S15;
+  S10->S11;  S10->S12;
+  S11->S13;
+  S12->S14;
+  S13->S15;
+  S14->S15;
+  # Deadlock state
+    S15->S15;
+
+LABELS
+
+  initial : S0;
+  deadlock : S15;
+  initialized : S10, S11, S12, S13, S14, S15;
+  sorted : S9, S15;
+
+CTL
+  will_init := (AF initialized);
+  will_term := (AF deadlock);
+  will_sort := (AF sorted);
+
+  S0 |= will_init;
+  S0 |= will_term;
+  S0 |= will_sort;

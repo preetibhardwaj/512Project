@@ -1,0 +1,37 @@
+
+
+KRIPKE
+
+STATES 5
+
+ARCS
+
+S0 -> S0; S0 -> S1; S0 -> S2;
+S1 -> S2;
+S2 -> S3;
+S3 -> S3; S3 -> S2;
+S4 -> S4;
+
+LABELS
+
+p : S1, S3;
+q : S2, S3;
+r : S1, S2, S3;
+t : S0, S4;
+u : S1;
+v : S3;
+w : S0, S2, S3, S4;
+x : S0, S2, S4;
+all : S0, S1, S2, S3, S4;
+empty : ;
+
+CTL
+
+
+# AF all
+f := AF all;
+S0 |= f;
+S1 |= f;
+S2 |= f;
+S3 |= f;
+S4 |= f;

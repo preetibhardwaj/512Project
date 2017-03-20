@@ -1,0 +1,8 @@
+KRIPKE
+STATES 2
+ARCS
+  S1 -> S1;
+LABELS
+  p : S1;
+CTL
+  [[p]];
